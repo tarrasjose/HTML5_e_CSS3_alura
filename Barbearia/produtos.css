@@ -29,6 +29,69 @@ nav a {
 
 }
 
-main li {
-    
+nav a:hover {
+    color: #C78C19;
+    text-decoration: underline;
 }
+
+.produtos {
+    width: 940px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.produtos li {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    vertical-align: top; /*Um dos problemas quando usamos o inline block é que ele alinha os elementos pela linha de baixo, o vertical align top alinha pela linha de cima.*/
+    margin: 0 1.5%; /*0 para cima e para baixo e 1.5% para os lados. Somando 1.5% + 1.5% vai dar 3% de margin no total, mais os 30% de largura temos 99% do nosso elemento principal ocupado.*/
+    padding: 30px 20px;
+    box-sizing: border-box; /*Com isso os width: 30%; dos produtos é definitivo, são sempre a largura e esses pixel de espaçamento interno estão dentro desses 30% */
+    border: 2px solid black;
+    /*border-color: #000000;
+    border-width: 2px;
+    border-style: solid;*/
+    border-radius: 10px;
+}
+
+.produtos li:hover {
+    border-color: #C78C19;
+
+}
+
+.produtos li:active {
+    border-color: #088C19;
+}
+
+.produtos li:hover h2 {
+    font-size: 34px;
+}/*Essa muda o tamanho do título do produto*/
+
+.produtos h2 {
+    font-size: 30px;
+    font-weight: bold;
+} 
+
+.produto-descriçao {
+    font-size: 18px;
+}
+
+.produto-preço {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0 0; /*Espaçamento externo pra cima do preço de 10px. Obs: Seria o mesmo escrever margin-top: 10px*/
+}
+
+footer {
+    text-align: center;
+    background: url("bg.jpg");
+    padding: 40px 0; /*40px para cima e para baixo e 0 para os lados*/
+}
+
+.copyright {
+    color: #FFFFFF;
+    font-size: 13px;
+    margin: 20px 0 0; /*Poderia substituir pelo margin-top*/
+}
+

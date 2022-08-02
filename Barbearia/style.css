@@ -1,52 +1,370 @@
+/*CSS DA PÁGINA INICIAL*/
 
+body {
+    font-family: 'Montserrat', sans-serif;
+}
 
-#banner {
+.banner {
     width: 100%;
 }
 
-.principal {
-    background: #cccccc;
-    padding: 30px;
-}
+
+/*Abertura de exemplos de seletores avançado
+
+main > p {
+    background: red;
+} /Esse seleciona o o filho direto do p/
+
+img + p {
+    background: blue;
+} /Esse seleciona o primeiro paragrafo, o irmao mais proximo da imagem/
+
+img ~ p {
+    background:#088C19;
+} /Selecionado todos os paragrafos que vem depois de uma imagem/
+
+.principal p:not(#missao) {
+    background: orange;
+} /Esse exclui o paragrafo com id missao e deixa orange todos os outros dentro do .principal/
+
+Fechamento de exemplos de seletores avançado*/
 
 .titulo-principal {
-    padding-left: 20px;
-}
-
-.titulo-centralizado {
     text-align: center;
+    font-size: 2em; /*2em = O dobro da fonte da fonte padrão do tamanho base*/
+    margin: 0 0 1em; /*margin para baixo*/
+    clear: left;
+    /*text-shadow: 2px 2px 2px red; Exemplo de sombras no texto*/
 }
 
-p {
-    text-align: center;
-    background: #cccccc;
+.principal {
+    padding: 3em 0; /*3em para cima e para baixo e 0 para as laterais*/
+    background: #FEFEFE;
+    width: 940px;
+    margin: 0 auto;
 }
 
-#missao {
-    font-size: 20px;
+/*Abertura de exemplos de Pseudo-elementos
+Elementos que criamos via CSS que não existe no HTML
+
+.titulo-principal:first-letter {
+    font-weight: bold; 
+} Primeira letra em negrito
+
+.titulo-principal:before {
+    content: "[ ";
+} Coloca esse colchete antes do título principal
+
+.titulo-principal::after{
+    content: " ]";
+} coloca esse colchete depois do título principal
+
+Fechamento de exemplos de Pseudo-elementos*/
+
+.principal p {
+    margin: 0 0 1em;
 }
 
-em strong {
-    color: #FF0000;
+.principal strong {
+    font-weight: bold;
 }
 
-.itens {
+.principal em  {
     font-style: italic;
 }
 
+.utensilios {
+    width: 120px;/*Podemos usar o calc() no width do inspecionar para calcular a imagem*/
+    float: left; /*Determina que um elemento deve ser retirado do seu fluxo normal e colocado ao longo do lado direito ou esquerdo, só que ele afeta todos elementos e deve usar o clear para colocar o limite como foi feito no .titulo-principal e o titulo beneficios voltou para linha logo abaixo do fim da imagem*/
+    margin: 0 20px 20px 0px ; /*0 para cima, 20px para direita, 20px para baixo e 0 para esquerda*/
+}
+
+.mapa {
+    padding: 3em 0;
+    background: linear-gradient(#FEFEFE, #888888);
+    
+}
+
+.mapa-conteudo {
+    width: 940px;
+    margin: 0 auto;
+}
+
+
+.mapa p {
+    margin: 0 0 2em; /*Para baixo*/
+    text-align: center;
+}
+
 .beneficios {
-    background: #FFFFFF;
-    padding: 20px;
+    padding: 3em 0;
+    background: #888888;
+    /*box-shadow: inset 0 0 30px #FF0000; Outro exemplo de uso de sombras*/
+    
+}
+
+.conteudo-beneficios {
+    width: 640px;
+    margin: 0 auto;
+}
+
+.lista-beneficios {
+    width: 40%;
+    display: inline-block;
+    vertical-align: top; /*Esse alinha tira a lista da parte superior junto com a imagem*/
+} 
+/*
+Sobre o inline-block da .lista-beneficios
+Repare que colocamos a tag img colada com ul no html, isso porque queremos colocar a lista ao lado da imagem usando o display inline-block, o tamanho da lista tem 40% e da imgagem 60%, os dois deveriam ficar um do lado do outro, mas o display inline-block, tem um pequeno detalhe que muda completamente exibição, esse detalhe é que ele interpreta no nosso html, tudo que colocarmos inclusive um espaço vazio de pular linha, por isso coloquei o img lado a lado com img no html.
+*/
+.itens {
+    line-height: 1.5; /*Aumentou a altura, espaço entre as linhas da lista*/
+}
+
+.itens::before {
+    content: "★";
+} /*Pseudo Elementos*/
+
+.itens:first-child {
+    font-weight: bold;
+} /*Através dos peseudos elementos fazemos para marcar o primeiro item da lista, pois se usássemos o somente a class todos ficariam negrito, poderiam marcar o last-child por exemplo. OBS: para acessar qualquer item da lista usamos o :nth-child(4) usando o 4 marcaria o 4 elemento da lista por exemplo. Outro exemplo é que se usássemos :nth-child(2n) a cada duas linhas deixaria negrito o item da lista*/
+
+.imagem-beneficios {
+    width: 60%;
+    opacity: 1; /*Ela vai 0 que não exibe nada a 1 que exibe o elemento inteiro */
+    box-shadow: 10px 10px 10px 0 #000000; /*Primeiro e segundo para e para o lado, o terceiro é o espalhamento e quarto para difinir o quao mais ela vai se espalhar. Posso criar outras sombras usando a vírgula. Poderia ficar sem o 0, deixei de exemplo*/
+}
+
+.imagem-beneficios:hover{
+    opacity: 0.3;
+    transition: 400ms;
 }
 
 
-ul {
-    display: inline-block; /*Ocupa só o tamanho do conteúdo, mas me deixa mexer na sua largura e espaçamento*/
-    vertical-align: top; /*Todos elementos são alinhados pela linha de baixo, com esse alinha em cima*/
-    width: 20%;
-    margin-right: 15%; /*Espaçamento externo para direita*/
+.video {
+    width: 560px;
+    margin: 2em auto; /*1 em para cima e para baixo e auto para laterais para centralizar o video*/
+}
+/*
+@media screen and (max-width: 480px) {
+    .caixa, .principal {
+        width: auto;
+    }
 }
 
-.imagembeneficios {
+
+*/
+
+
+
+/*CSS DA PÁGINA DE PRODUTOS*/
+
+header {
+    background: #BBBBBB;
+    padding: 20px 0px;
+}
+
+.caixa {
+    position: relative;
+    width: 940px; /*Uma largura padrão que se usa na web, a maioria das boas resoluções é de 1260px de largura, quando se usa 940 está numa boa margem*/
+    margin: 0 auto;
+}
+
+nav {
+    position: absolute;
+    top: 110px;
+    right: 0;
+}
+
+nav li {
+    display: inline;
+    margin: 0 0 0 15px;
+}
+
+nav a {
+    text-transform: uppercase; /*Tranformar texto em maiúsculo*/
+    color: #000000;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+
+}
+
+nav a:hover {
+    color: #C78C19;
+    text-decoration: underline;
+}
+
+.produtos {
+    width: 940px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.produtos li {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    vertical-align: top; /*Um dos problemas quando usamos o inline block é que ele alinha os elementos pela linha de baixo, o vertical align top alinha pela linha de cima.*/
+    margin: 0 1.5%; /*0 para cima e para baixo e 1.5% para os lados. Somando 1.5% + 1.5% vai dar 3% de margin no total, mais os 30% de largura temos 99% do nosso elemento principal ocupado.*/
+    padding: 30px 20px;
+    box-sizing: border-box; /*Com isso os width: 30%; dos produtos é definitivo, são sempre a largura e esses pixel de espaçamento interno estão dentro desses 30% */
+    border: 2px solid black;
+    /*border-color: #000000;
+    border-width: 2px;
+    border-style: solid;*/
+    border-radius: 10px;
+}
+
+.produtos li:hover {
+    border-color: #C78C19;
+
+}
+
+.produtos li:active {
+    border-color: #088C19;
+}
+
+.produtos li:hover h2 {
+    font-size: 34px;
+}/*Essa muda o tamanho do título do produto*/
+
+.produtos h2 {
+    font-size: 30px;
+    font-weight: bold;
+} 
+
+.produto-descriçao {
+    font-size: 18px;
+}
+
+.produto-preço {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0 0; /*Espaçamento externo pra cima do preço de 10px. Obs: Seria o mesmo escrever margin-top: 10px*/
+}
+
+footer {
+    text-align: center;
+    background: url("bg.jpg");
+    padding: 40px 0; /*40px para cima e para baixo e 0 para os lados*/
+}
+
+.copyright {
+    color: #FFFFFF;
+    font-size: 13px;
+    margin: 20px 0 0; /*Poderia substituir pelo margin-top*/
+}
+
+
+/*CSS DA PÁGINA DE CONTATO*/
+
+
+
+form {
+    margin: 40px 0;
+}
+
+form label, form legend {
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px; /*Margin para baixo*/
+}
+
+.input-padrao {
+    display: block;
+    margin: 0 0 20px;
+    padding: 10px 25px; /*10px para cima e para baixo e 25px para os lados*/
     width: 50%;
+}
+
+.checkbox {
+    margin: 20px 0;
+}
+
+.enviar {
+    width: 40%;
+    padding: 15px 0; 
+    background: orange;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border:none; /*Tirando a borda do botão*/
+    border-radius: 5px;
+    /*transition: 1s background; Esse dará o tempo de transição para mudar a cor background mais suave.*/
+    transition: 1s all; /*Esse fára com o tempo de transição de tudo seja de 1 segundo*/
+    cursor: pointer;/*Isso fará com que apareça a maozinha indicando que é clicavel sempre que o mouse estiver por cima do elemento*/
+}
+
+.enviar:hover {
+    background: darkorange;
+    transform: scale(1.2); /*Aumentou o botão em 20% o tamanho do botão*/
+    /*transform: scale(1.2) rotate(20deg) /*deg= graus* roda 20 graus. obs: quando queremos usar em mais de um transform usamos o espaço mais a outra opção. Existem opções que vale a pena serem estudados*/
+}
+
+table {
+    margin: 20px 40px; /*Espaçamento externo pra cima e pra baixo*/
+}
+
+thead {
+    background: #555555;
+    color: white;
+    font-weight: bold;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 8px 15px ;
+}
+
+@media screen and (max-width: 480px) {
+    .caixa, .principal, .conteudo-beneficios, .mapa-conteudo, .video{
+        width: auto;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    nav{
+        position: static;
+    }
+
+    .lista-beneficios, .imagem-beneficios {
+        width: 100%;
+       
+    }
+
+    /*produtos*/
+
+    .produtos li {
+        
+        width: 90%;
+        margin: 10px;
+       
+    }
+    ul {
+        display: inline;
+    }
+
+    /*Contato*/
+
+    form {
+        margin: 40px 10px 40px 10px;
+    }
+
+    .input-padrao {
+       width: 80%;
+       font-size: 18px;
+    }
+
+    table  {
+        margin: auto ;
+    }
+
+    .enviar {
+        width: 50%;
+        padding: 18px 0; 
+        font-size: 16px;
+    }
 }
